@@ -15,3 +15,9 @@ For now, following report templates are available:
 
 # Installation of scripts
 The script are simply copyied to the report_template directory and FRED is re-started.
+
+Windows:
+Default installation path is C:\Program Files (x86)\fred\
+
+Linux:
+Default installation path is /usr/share/fred
