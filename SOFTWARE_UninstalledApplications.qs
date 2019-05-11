@@ -1,6 +1,6 @@
 //-----------------------------------------------------------
-// SOFTWARE_InstalledApplications.qs
-// Parse the SOFTWARE hive file for installed applications.
+// SOFTWARE_UninstalledApplications.qs
+// Parse the SOFTWARE hive file for uninstalled applications.
 //
 // Install: Copy file to report_templates directory
 //
@@ -13,9 +13,9 @@
 //-----------------------------------------------------------
 function fred_report_info() {
   var info={report_cat    : "SOFTWARE",
-            report_name   : "Installed Applications",
+            report_name   : "Uninstalled Applications",
             report_author : "Christian Hammer",
-            report_desc   : "Report installed applications",
+            report_desc   : "Report uninstalled applications",
             fred_api      : 2,
             hive          : "SOFTWARE"
   };
@@ -23,7 +23,7 @@ function fred_report_info() {
 }
 
 function fred_report_html() {
-  var rootKey = "\\RegisteredApplications";
+  var rootKey = "\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall";
 
   fred_report_html = function(){}; // Run only once. Trying to accomodate both windows and linux versions.
   var info = fred_report_info();
@@ -45,11 +45,10 @@ function fred_report_html() {
   println("<div class='title'>"+info.report_name+"</div>");
   println("<div>Path: ",printroot,"</div>");
 
-  // List installed applications
-  var nodes = GetRegistryKeys(rootKey);
+  var nodes = GetRegistryNodes(rootKey);
   if (!nodes) {
     rootKey = printroot = "\\"+info.hive+rootKey;
-    nodes = GetRegistryKeys(rootKey);
+    nodes = GetRegistryNodes(rootKey);
   };
 
   if (!nodes) {
@@ -60,10 +59,17 @@ function fred_report_html() {
   println("<table>");
   println("<tr><td><b>Count</b></td><td>",nodes.length,"</td></tr>");
   for(var i=0;i<nodes.length;i++) {
-    var path = GetRegistryKeyValue(rootKey,nodes[i]);
-    println("<tr><td>",nodes[i],"</td><td>",RegistryKeyValueToString(path.value, path.type),"</td></tr>");
-  };
+    // var path = GetRegistryKeyValue(rootKey,nodes[i]);
+    var path = rootKey+"\\"+nodes[i];
+    println("<tr><td colspan='2'><b>",nodes[i],"</b></td></tr>");
+    println("<tr><td>Path</td><td>",path,"</td></tr>");
 
+    var keys = GetRegistryKeys(path);
+    for (var j=0; j<keys.length; ++j){
+      var value = GetRegistryKeyValue(path, keys[j]);
+      println("<tr><td>",keys[j],"</td><td>",RegistryKeyValueToString(value.value, value.type),"</td></tr>");
+    };
+  };
   println("</table></body></html>");
 }
 
