@@ -13,6 +13,7 @@ For now, following report templates are available:
 - SAM_Groups.qs - List group information (From the SAM hive).
 - SOFTWARE_OSVersion.qs - List OS information (From the SOFTWARE hive).
 - SOFTWARE_InstalledApplications.qs - List current installed application.
+- SOFTWARE_UninstalledApplications.qs - List known uninstalled application.
 
 # Installation of scripts
 The script are simply copyied to the report_template directory and FRED is re-started.
