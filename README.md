@@ -12,6 +12,7 @@ For now, following report templates are available:
 - SAM_AccountsCompact.qs - Compact list of user accounts and group memberships (From the SAM hive).
 - SAM_Groups.qs - List group information (From the SAM hive).
 - SOFTWARE_OSVersion.qs - List OS information (From the SOFTWARE hive).
+- SOFTWARE_InstalledApplications.qs - List current installed application.
 
 # Installation of scripts
 The script are simply copyied to the report_template directory and FRED is re-started.
