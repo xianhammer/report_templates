@@ -14,6 +14,7 @@ For now, following report templates are available:
 - SOFTWARE_OSVersion.qs - List OS information (From the SOFTWARE hive).
 - SOFTWARE_InstalledApplications.qs - List current installed application.
 - SOFTWARE_UninstalledApplications.qs - List known uninstalled application.
+- SYSTEM_MountedDevices.qs - List the devices mounted.
 
 # Installation of scripts
 The script are simply copyied to the report_template directory and FRED is re-started.
