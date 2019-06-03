@@ -6,6 +6,7 @@
 //
 // Change history:
 //    20190511 - created
+//    20190603 - fixed linux issue
 //
 // References
 //
@@ -67,4 +68,7 @@ function fred_report_html() {
   println("</table></body></html>");
 }
 
-fred_report_html();
+// Finally, call the main function - windows version of FRED does not run this automatically...
+// While linux version need to postpone this to aftaer some initialisation!
+if ("GetRegistryNodes" in this)
+  fred_report_html();

@@ -6,6 +6,7 @@
 //
 // Change history:
 //    20190509 - created
+//    20190603 - fixed linux issue
 //
 // References
 //    https://github.com/appliedsec/forensicscanner/blob/master/plugins/samparse.pl
@@ -199,4 +200,7 @@ function get_builtin_aliases(rootKey){
   return out;
 };
 
-fred_report_html();
+// Finally, call the main function - windows version of FRED does not run this automatically...
+// While linux version need to postpone this to aftaer some initialisation!
+if ("GetRegistryNodes" in this)
+  fred_report_html();

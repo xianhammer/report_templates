@@ -8,6 +8,7 @@
 //
 // Change history:
 //    20190509 - created
+//    20190603 - fixed linux issue
 //
 // References
 //
@@ -245,4 +246,6 @@ function get_builtin_aliases(rootKey){
 };
 
 // Finally, call the main function - windows version of FRED does not run this automatically...
-fred_report_html();
+// While linux version need to postpone this to aftaer some initialisation!
+if ("GetRegistryNodes" in this)
+  fred_report_html();
