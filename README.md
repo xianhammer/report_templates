@@ -4,7 +4,7 @@ This repo contain report templates for the FRED forensics tool found at https://
 Developed for an assignment up to a deadline, these template are not yet of a satisfyingly good code quality :)
 Hopefully, I will have surplus time to continue developing more report templates.
 
-NOTE These report templates are developed for the Windows version. It seems that there are a few differences between Windows and Linux and though I have tried to make some provisions of hitting both targets, the Linux version may be suffering for now.
+NOTE These report templates are developed for the Windows version. It seems that there are a few differences between Windows and Linux and though I have tried to make some provisions of hitting both targets but a few minor issues may appear.
 
 For now, following report templates are available:
 
