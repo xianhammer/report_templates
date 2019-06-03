@@ -25,3 +25,4 @@ Default installation path is C:\Program Files (x86)\fred\
 
 Linux:
 Default installation path is /usr/share/fred
+User specific templates in ~/.fred/report_templates
