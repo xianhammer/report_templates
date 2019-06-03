@@ -15,7 +15,7 @@
 //-----------------------------------------------------------
 function fred_report_info() {
   var info={report_cat    : "SAM",
-            report_name   : "User Accounts",
+            report_name   : "User Accounts, Extended",
             report_author : "Christian Hammer",
             report_desc   : "Report User Accounts",
             fred_api      : 2,
